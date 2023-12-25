@@ -2,8 +2,12 @@
 <idea-plugin>
     <id>com.github.872963588.womtemplate</id>
     <name>WomTemplate Template</name>
-    <vendor>872963588</vendor>
-
+    <vendor>cr</vendor>
+    <!-- Product and plugin compatibility requirements -->
+    <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.java</depends>
     <depends>com.intellij.modules.platform</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
@@ -15,4 +19,8 @@
     <applicationListeners>
         <listener class="com.github.872963588.womtemplate.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider implementation="com.github.872963588.womtemplate.generator.PluginGeneratorProvider" />
+    </extensions>
 </idea-plugin>
